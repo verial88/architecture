@@ -178,7 +178,7 @@ Python является высокоуровневым языком програ
 - `UsersRepositoryImpl` - описание имплементации репозитория пользователей
 - `UsersFactoryRepositoryProtocol` - описание фабрики пользователей, к примеру, если пользователи лежат в разных местах
 - `UsersFactoryRepositoryImpl` - имплементация абстрактной фабрики пользователей
-В некотрых случаях, можно указывать имплементацию без Impl, например:
+В некоторых случаях, можно указывать имплементацию без Impl, например:
 - `SearchRepositoryProtocol` - протокол поискогово движка
 - `ElasticSearchRepository` - имплементация ElasticSearch
 - `OpenSearchRepository` - имплементация OpenSearch
