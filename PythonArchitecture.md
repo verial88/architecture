@@ -186,9 +186,6 @@ Python является высокоуровневым языком програ
 Примеры реализации различных сервисов представлены тут:
 
 - [FastAPI boilerplate](https://github.com)
-- [VoiceAI Portal](https://github.com)
-- [VoiceAI Users](https://github.com)
-- [VoiceAI Processing](https://github.com)
 
 ## Запуск приложения в режиме разработки
 
