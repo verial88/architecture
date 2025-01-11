@@ -266,7 +266,7 @@ POST /users/{userId}/scripts/{id}/status:execute ✅
 - шашлычная нотация (*kebab-case*).
 Рассмотрим пример типового *GET* запроса на получение шаблонов оценки пользователя:
 ```
-GET https://site.ru/api/users/users/{userId}/mark-templates?page=1&page_size=30
+GET https://site.ru/api/users/users/{userId}/mark-templates?page=1&pageSize=30
                    ^ сервисная навигация
                              ^ запрос ресурсов
                                    ^ Path
