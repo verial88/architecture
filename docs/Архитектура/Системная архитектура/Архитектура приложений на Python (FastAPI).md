@@ -221,7 +221,7 @@ class User(Base):
     is_deleted: Mapped[bool] = mapped_column(Boolean, default=False, server_default=sa.false(), nullable=False)
     is_superuser: Mapped[bool] = mapped_column(Boolean, default=False, server_default=sa.false(), nullable=False)
     login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-    
+
     def __repr__(self: Self) -> str:
         return f'User(id={self.id!r}, email={self.email!r}, username={self.username!r})'
 ```
@@ -290,7 +290,7 @@ else:
 # Импорт моделей
 import_module('{{ project_name }}.apps.users.models')
 
-# Доступ к значениям из файла конфигурации alembic.ini 
+# Доступ к значениям из файла конфигурации alembic.ini
 config = context.config
 section = config.config_ini_section
 # Установка параметров конфигурации, которые потом используются в строке подключения
@@ -312,12 +312,12 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
-  
+
 
 def run_migrations_offline() -> None:
     """
 	Run migrations in 'offline' mode.
-	
+
 	This configures the context with just a URL and not an Engine, though an Engine is acceptable here as well. By skipping the Engine creation we don't even need a DBAPI to be available.
 	Calls to context.execute() here emit the given string to the script output.
 	"""
@@ -404,7 +404,7 @@ class UserCreateSchema(CreateSchema):
 	last_name: str
 	avatar: str | None
 	is_active: bool
-	is_superuser: bool  
+	is_superuser: bool
 
 
 class UserReadSchema(ReadSchema):
@@ -434,7 +434,7 @@ class UserUpdateSchema(UpdateSchema):
 	Схема для обновления пользователя.
 	"""
 
-	username: str | None = None	
+	username: str | None = None
 	email: EmailStr | None = None
 	hashed_password: str | None = None
 	first_name: str | None = None
@@ -487,7 +487,7 @@ class PasswordResetStatusEnum(StrEnum):
 ## Репозитории (_Repositories_)
 **Репозиторий** — это интерфейс, описывающий набор операций для работы с сущностями предметной области, который отделяет бизнес-логику от инфраструктурных деталей хранения данных.
 #### Репозиторий СУБД
-Выше описана модель `User`, которая в базу данных проецируется как таблица `users`. 
+Выше описана модель `User`, которая в базу данных проецируется как таблица `users`.
 В библотеке [fast_clean](https://github.com/Luferov/fast-clean) описан базовый [CRUDRepository](https://github.com/Luferov/fast-clean/blob/main/fast_clean/repositories/crud/db.py), которые содержит общие методы для всех моделей. Каждый репозиторий, который отражает таблицу в СУБД должен быть отнаследован от базового репозитория `DbCrudRepository`:
 ```python
 class DbCrudRepository(
@@ -734,14 +734,14 @@ from {{ project_name }} import Settings
 @dataclass
 class CryptoService:
 	settings: Settings
-	
+
 	def encode(self: Self, value: dict, *, algorithm: str = 'HS256') -> str:
 		return jwt.encode(value, self.settings.secret_key, algorithm=algorithm)
 
 	def decode(self: Self, token: str, *, algorithm: str = 'HS256') -> dict:
 		return jwt.decode(token, self.settings.secret_key, algorithms=[algorithm])
 ```
-Использование во всех сервисах _CryptoService_ вместо импорта библиотеки позволит в случае изменения библиотеки поменять имплементацию только в одном месте. Кроме этого, такое использование окажет положительное влияние на процесс тестирования. 
+Использование во всех сервисах _CryptoService_ вместо импорта библиотеки позволит в случае изменения библиотеки поменять имплементацию только в одном месте. Кроме этого, такое использование окажет положительное влияние на процесс тестирования.
 ## Варианты использования (_UseCases_)
 
 В отличие от сервисного слоя, который группирует логику по доменным областям. **_UseCase_** — это следующий шаг декомпозиции, фокусирующийся на **одном конкретном бизнес-сценарии**, **полностью изолируя чистую бизнес-логику** от инфраструктуры. Это делает приложение ещё более гибким, тестируемым и понятным, особенно в сложных доменах. UseCase не всегда заменяет сервисный слой, но он поднимает уровень абстракции бизнес-правил на новую ступень.
