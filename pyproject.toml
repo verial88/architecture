@@ -7,7 +7,6 @@ requires-python = ">=3.13"
 dependencies = [
     "mkdocs>=1.6.1",
     "mkdocs-awesome-nav>=3.1.2",
-    "mkdocs-build-plantuml-plugin>=1.11.0",
     "mkdocs-material>=9.6.15",
     "mkdocs-toggle-sidebar-plugin>=0.0.6",
     "pre-commit>=4.2.0",
