@@ -377,7 +377,7 @@ GET /users?cursor={cursor}&limit=30 // последующие запросы
 ```
 select * from users WHERE id < %cursor ORDER BY id DESC LIMIT %(limit + 1)
 ```
-Сервер извлекает данные, которые больше чем заданных  id и количество записей `limit`.
+Сервер извлекает данных больше, чем заданно id и количество записей `limit`.
 При этом, ответ выглядит следующим образом:
 ```
 GET /users?cursor={cursor}&limit=30
